@@ -28,3 +28,6 @@ def lambda_handler(event, context):
     object_name = "test"
     bucket = 'test-max-vlad-acc'
     df.to_csv(lambda_path, index=False)
+        client.upload_file(Filename=lambda_path, Bucket=bucket, Key=object_name)
+    print(1)
+    return {}
