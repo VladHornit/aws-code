@@ -5,6 +5,7 @@ import json
 import time
 import requests as r
 
+MYBUCKET = 'my-bucket-name'
 
 def lambda_handler(event, context):
     client = boto3.client('s3')
@@ -26,7 +27,7 @@ def lambda_handler(event, context):
     'ask_qty'])], 1)
 
     object_name = "test"
-    bucket = 'test-max-vlad-acc'
+    bucket = MYBUCKET
     df.to_csv(lambda_path, index=False)
         client.upload_file(Filename=lambda_path, Bucket=bucket, Key=object_name)
     print(1)
